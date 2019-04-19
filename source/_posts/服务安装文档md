@@ -1,0 +1,18 @@
+---
+title: 服务搭建流水账
+date: 2018-10-25 23:12:06
+tags: linux
+---
+前段时间在开发一个区块链钱包项目，在准备一些线上及测试环境
+包含后台服务及web服务
+整理一下，纯做记录
+
+
+### openresty
+`
+wget https://openresty.org/download/openresty-1.13.6.2.tar.gz
+tar -xzvf openresty-1.13.6.2.tar.gz
+./configure --prefix=/alidata/server/openresty
+make -j4
+make install
+`
