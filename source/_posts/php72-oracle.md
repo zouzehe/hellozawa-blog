@@ -13,7 +13,7 @@ tags:
 ## 安装php7.2
 
 我是源代码安装的
->> apt-get install libxml2-dev libcurl4-gnutls-dev libbz2-dev libjpeg-dev libpng-dev libxpm-dev libfreetype6-dev libt1-dev libmcrypt-dev libmysql++-dev libxslt1-dev
+> apt-get install libxml2-dev libcurl4-gnutls-dev libbz2-dev libjpeg-dev libpng-dev libxpm-dev libfreetype6-dev libt1-dev libmcrypt-dev libmysql++-dev libxslt1-dev
 wget https://www.php.net/distributions/php-7.2.17.tar.gz
 tar -xzvf php-7.2.17.tar.gz
 cd php-7.2.17
