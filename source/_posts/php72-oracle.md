@@ -13,7 +13,7 @@ tags:
 ## 安装php7.2
 
 我是源代码安装的
->> apt-get install libxml2-dev libcurl4-gnutls-dev libbz2-dev libjpeg-dev libpng-dev libxpm-dev libfreetype6-dev libt1-dev libmcrypt-dev libmysql++-dev libxslt1-dev
+> apt-get install libxml2-dev libcurl4-gnutls-dev libbz2-dev libjpeg-dev libpng-dev libxpm-dev libfreetype6-dev libt1-dev libmcrypt-dev libmysql++-dev libxslt1-dev
 wget https://www.php.net/distributions/php-7.2.17.tar.gz
 tar -xzvf php-7.2.17.tar.gz
 cd php-7.2.17
@@ -22,23 +22,23 @@ make
 make install
 
 ## 安装Oracle Instant Client 和 SDK
->>1. 首先去oracle官网 https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html ，下载需要登录验证的，没有账户的可以先注册。
+>1. 首先去oracle官网 https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html ，下载需要登录验证的，没有账户的可以先注册。
 instantclient-basic-linux.x64-19.3.0.0.0dbru.zip 
 instantclient-sdk-linux.x64-19.3.0.0.0dbru.zip 
->>2. mkdir /opt/oracle
->>3. cd /opt/oracle   
+>2. mkdir /opt/oracle
+>3. cd /opt/oracle   
 unzip instantclient-basic-linux.x64-19.3.0.0.0dbru.zip
 unzip instantclient-sdk-linux.x64-19.3.0.0.0dbru.zip
->>4. 添加ldconfig   
+>4. 添加ldconfig   
 echo /opt/oracle/instantclient_19_3 > /etc/ld.so.conf.d/oracle-instantclient.conf
->>5. 执行 ldconfig 生效   
+>5. 执行 ldconfig 生效   
   
 ## 编译安装oci8
->>1. apt-get install build-essential libaio1   
->>2. wget http://pecl.php.net/get/oci8-2.2.0.tgz 
->>3. 解压进入目录 
+>1. apt-get install build-essential libaio1   
+>2. wget http://pecl.php.net/get/oci8-2.2.0.tgz 
+>3. 解压进入目录 
 ./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-oci8=instantclient,--with-oci8=instantclient,/opt/oracle/instantclient_19_3
->>4. make
+>4. make
 中间可能会报错
 ```shell   
   running: make
@@ -49,15 +49,15 @@ echo /opt/oracle/instantclient_19_3 > /etc/ld.so.conf.d/oracle-instantclient.con
    make: *** [oci8.lo] Error 1
    ERROR: `make' failed
 ```
->>5. 解决办法，安装dtrace
+>5. 解决办法，安装dtrace
    apt-get install systemtap-sdt-dev
    然后基本上没问题了
->>6. 重新make && make install
->>7. 加入php.ini 
-    echo "extension =oci8.so" >> /data/server/7.2/etc/php.ini
+>6. 重新make && make install
+>7. 加入php.ini 
+    echo "extension =oci8.so" > /data/server/7.2/etc/php.ini
     
 ## 安装php ext pdo_oci
->> 直接接入php源码包目录
+> 直接接入php源码包目录
     cd /data/tmp/php-7.2.17/ext/pdo_oci
     phpize
     ./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_3
@@ -67,6 +67,6 @@ echo /opt/oracle/instantclient_19_3 > /etc/ld.so.conf.d/oracle-instantclient.con
     extension=pdo_oci 把注释去掉
     
 ## 至此安装完毕
->>  php -m
+>  php -m
     oci8
     PDO_OCI
