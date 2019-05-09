@@ -57,16 +57,17 @@ echo /opt/oracle/instantclient_19_3 > /etc/ld.so.conf.d/oracle-instantclient.con
     echo "extension =oci8.so" > /data/server/7.2/etc/php.ini
     
 ## 安装php ext pdo_oci
-> 直接接入php源码包目录
-    cd /data/tmp/php-7.2.17/ext/pdo_oci
-    phpize
-    ./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_3
-    make
-    make install
-    vi /data/server/7.2/etc/php.ini
-    extension=pdo_oci 把注释去掉
+>1. 直接接入php源码包目录
+>2. cd /data/tmp/php-7.2.17/ext/pdo_oci
+>3. phpize
+>4. ./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-pdo-oci=instantclient,/opt/oracle/instantclient_19_3
+>5. make
+>6. make install
+>7. vi /data/server/7.2/etc/php.ini
+>8. extension=pdo_oci 把注释去掉
     
 ## 至此安装完毕
->  php -m
-    oci8
-    PDO_OCI
+> php -m
+
+oci8
+PDO_OCI
