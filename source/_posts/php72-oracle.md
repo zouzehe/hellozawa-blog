@@ -41,7 +41,7 @@ echo /opt/oracle/instantclient_19_3 > /etc/ld.so.conf.d/oracle-instantclient.con
 1. apt-get install build-essential libaio1   
 2. wget http://pecl.php.net/get/oci8-2.2.0.tgz 
 3. 解压进入目录 
-./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-oci8=instantclient,--with-oci8=instantclient,/opt/oracle/instantclient_19_3
+./configure --with-php-config=/data/server/php-7.2/bin/php-config --with-oci8=instantclient --with-oci8=instantclient,/opt/oracle/instantclient_19_3
 4. make
 中间可能会报错
 ```shell   
